@@ -1,0 +1,146 @@
+{
+ "name": "flare", "indenture": 1,
+ "children": [
+  {
+   "name": "analytics","indenture": 2,
+   "children": [
+    {
+     "name": "cluster","indenture": 3,
+     "children": [
+      {"name": "AgglomerativeCluster", "size": 3938, "indenture":4},
+      {"name": "CommunityStructure", "size": 3812, "indenture":4},
+      {"name": "HierarchicalCluster", "size": 6714, "indenture":4},
+      {"name": "MergeEdge", "size": 743, "indenture":4}
+     ]
+    },
+    {
+     "name": "graph","indenture": 3,
+     "children": [
+      {"name": "BetweennessCentrality", "size": 3534, "indenture":4},
+      {"name": "LinkDistance", "size": 5731, "indenture":4},
+      {"name": "MaxFlowMinCut", "size": 7840, "indenture":4},
+      {"name": "ShortestPaths", "size": 5914, "indenture":4},
+      {"name": "SpanningTree", "size": 3416, "indenture":4}
+     ]
+    },
+    {
+     "name": "optimization","indenture": 3,
+     "children": [
+      {"name": "AspectRatioBanker", "size": 7074, "indenture":4}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "animate","indenture": 2,
+   "children": [
+    {"name": "Easing", "size": 17010, "indenture": 3},
+    {"name": "FunctionSequence", "size": 5842, "indenture": 3},
+    {
+     "name": "interpolate", "indenture": 3,
+     "children": [
+      {"name": "ArrayInterpolator", "size": 1983, "indenture": 4}, 
+      {"name": "ColorInterpolator", "size": 2047, "indenture": 4},
+      {"name": "DateInterpolator", "size": 1375, "indenture": 4},
+      {"name": "Interpolator", "size": 8746, "indenture": 4},
+      {"name": "MatrixInterpolator", "size": 2202, "indenture": 4},
+      {"name": "NumberInterpolator", "size": 1382, "indenture": 4},
+      {"name": "ObjectInterpolator", "size": 1629, "indenture": 4},
+      {"name": "PointInterpolator", "size": 1675, "indenture": 4},
+      {"name": "RectangleInterpolator", "size": 2042, "indenture": 4}
+     ]
+    },
+    {"name": "ISchedulable", "size": 1041, "indenture": 3},
+    {"name": "Parallel", "size": 5176,"indenture": 3},
+    {"name": "Pause", "size": 449,"indenture": 3},
+    {"name": "TransitionEvent", "size": 1116,"indenture": 3},
+    {"name": "Tween", "size": 6006, "indenture": 3}
+   ]
+  },
+  {
+   "name": "data","indenture": 2,
+   "children": [
+    {
+     "name": "converters", "indenture": 3,
+     "children": [
+      {"name": "Converters", "size": 721, "indenture": 4},
+      {"name": "DelimitedTextConverter", "size": 4294, "indenture": 4},
+      {"name": "GraphMLConverter", "size": 9800, "indenture": 4},
+      {"name": "IDataConverter", "size": 1314, "indenture": 4},
+      {"name": "JSONConverter", "size": 2220, "indenture": 4}
+     ]
+    },
+    {"name": "DataField", "size": 1759, "indenture": 3},
+    {"name": "DataUtil", "size": 3322, "indenture": 3}
+   ]
+  },
+  {
+   "name": "display","indenture": 2,
+   "children": [
+    {"name": "DirtySprite", "size": 8833, "indenture": 3},
+    {"name": "LineSprite", "size": 1732, "indenture": 3},
+    {"name": "RectSprite", "size": 3623, "indenture": 3},
+    {"name": "TextSprite", "size": 10066, "indenture": 3}
+   ]
+  },
+  {
+   "name": "flex","indenture": 2,
+   "children": [
+    {"name": "FlareVis", "size": 4116, "indenture": 3}
+   ]
+  },
+  {
+   "name": "physics", "indenture": 2,
+   "children": [
+    {"name": "DragForce", "size": 1082, "indenture": 3},
+    {"name": "GravityForce", "size": 1336, "indenture": 3},
+    {"name": "IForce", "size": 319, "indenture": 3},
+    {"name": "NBodyForce", "size": 10498, "indenture": 3},
+    {"name": "Particle", "size": 2822, "indenture": 3},
+    {"name": "Simulation", "size": 9983, "indenture": 3},
+    {"name": "Spring", "size": 2213, "indenture": 3},
+    {"name": "SpringForce", "size": 1681, "indenture": 3}
+   ]
+  },
+  {
+   "name": "scale", "indenture": 2,
+   "children": [
+    {"name": "IScaleMap", "size": 2105, "indenture": 3},
+    {"name": "LinearScale", "size": 1316, "indenture": 3},
+    {"name": "LogScale", "size": 3151, "indenture": 3},
+    {"name": "ScaleType", "size": 1821, "indenture": 3},
+    {"name": "TimeScale", "size": 5833, "indenture": 3}
+   ]
+  },
+  {
+   "name": "util", "indenture": 2,
+   "children": [
+    {"name": "Arrays", "size": 8258, "indenture": 3},
+    {"name": "Colors", "size": 10001, "indenture": 3},
+    {"name": "Dates", "size": 8217, "indenture": 3},
+    {"name": "Displays", "size": 12555, "indenture": 3},
+    {"name": "Filter", "size": 2324, "indenture": 3},
+    {"name": "Geometry", "size": 10993, "indenture": 3},
+    {
+     "name": "heap", "indenture": 3,
+     "children": [
+      {"name": "FibonacciHeap", "size": 9354, "indenture": 4},
+      {"name": "HeapNode", "size": 1233, "indenture": 4}
+     ]
+    },
+    {"name": "IEvaluable", "size": 335, "indenture": 3},
+    {"name": "IPredicate", "size": 383, "indenture": 3},
+    {"name": "IValueProxy", "size": 874, "indenture": 3},
+    {
+     "name": "math", "indenture": 3,
+     "children": [
+      {"name": "DenseMatrix", "size": 3165, "indenture": 4},
+      {"name": "IMatrix", "size": 2815, "indenture": 4},
+      {"name": "SparseMatrix", "size": 3366, "indenture": 4}
+     ]
+    },
+    {"name": "Maths", "size": 17705, "indenture": 3}
+	]
+  }
+ ]
+}
