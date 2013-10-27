@@ -19,6 +19,19 @@
   pointer-events: none;
 }
 
+.node2 rect {
+  cursor: pointer;
+  fill: #fff;
+  fill-opacity: .5;
+  stroke: #3182bd;
+  stroke-width: 1.5px;
+}
+
+.node2 text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
 path.link {
   fill: none;
   stroke: #9ecae1;
@@ -35,14 +48,14 @@ path.link {
 var w = 1000,
     h = 2200,
     i = 0,
-    barHeight = 18,
+    barHeight = 20,
     barWidth = w * .4, // w * 0.8 as default
     duration = 400,
 	childxsep = 100,
     root;
 
 var tree = d3.layout.tree()
-    .size([h, childxsep]);  // second element of size controls how far (laterally) children nodes are from parent
+    .size([h, childxsep]);  // second element of size controls how far (laterally) last indenture of children nodes are from parent
 
 var diagonal = d3.svg.diagonal()
     .projection(function(d) { return [d.y, d.x]; });
@@ -77,12 +90,26 @@ function update(source) {
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
       .style("opacity", 1e-6);
+	  
+  var nodeEnter2 = node.enter().append("svg:g")
+      .attr("class", "node2")
+      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .style("opacity", 1e-6);
 
   // Enter any new nodes at the parent's previous position.
   nodeEnter.append("svg:rect")
       .attr("y", -barHeight / 2)
       .attr("height", barHeight)
-      .attr("width",  function(d) { return barWidth - (d.indenture-1)*33.333; })
+      .attr("width",  function(d) { return barWidth - (d.indenture-1)*childxsep/3; }) // Name column lines up on the right for all indentures
+      .style("fill", color)
+      .on("click", click);
+	
+  // enter in a new column for part number
+   nodeEnter2.append("svg:rect")
+      .attr("y", -barHeight / 2)
+	  .attr("x", function (d) {return 400+(1-d.indenture)*childxsep/3}) // pushed 400 or fewer pixels right to be the second column
+      .attr("height", barHeight)
+      .attr("width", barWidth/2) // Name column lines up on the right for all indentures
       .style("fill", color)
       .on("click", click);
   
@@ -93,6 +120,11 @@ function update(source) {
   
   // Transition nodes to their new position.
   nodeEnter.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+      .style("opacity", 1);
+	  
+  nodeEnter2.transition()
       .duration(duration)
       .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
       .style("opacity", 1);
@@ -160,7 +192,7 @@ function click(d) {
 }
 
 function color(d) {
-  return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
+  return d._children ? "#69ab35" : d.children ? "#c6dbef" : "#fd8d3c";
 }
 
     </script>
