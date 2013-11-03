@@ -45,11 +45,11 @@ path.link {
 
 <script type="text/javascript">
 
-var w = 1000,
+var w = 5000,
     h = 2200,
     i = 0,
     barHeight = 20,
-    barWidth = w * .4, // w * 0.8 as default
+    barWidth = 400, // w * 0.8 as default
     duration = 400,
 	childxsep = 100,
     root;
@@ -102,25 +102,19 @@ function update(source) {
       .attr("height", barHeight)
       .attr("width",  function(d) { return barWidth - (d.indenture-1)*childxsep/3; }) // Name column lines up on the right for all indentures
       .style("fill", color)
-      .on("click", click);
-	
-// Column 2	
-  nodeEnter.append("svg:rect")
-      .attr("y", -barHeight / 2)
-	  .attr("x", function (d) {return 400+(1-d.indenture)*childxsep/3}) // pushed 400 or fewer pixels right to be the second column
-      .attr("height", barHeight)
-      .attr("width",  barWidth/2 ) // Name column lines up on the right for all indentures
-      .style("fill", color)
-      .on("click", click);
+      .on("click", click);  
 	  
-//Column 3
-  nodeEnter.append("svg:rect")
+//columns 2 - 6
+	for (ii=2;ii<7;ii++)
+	{
+	  nodeEnter.append("svg:rect")
       .attr("y", -barHeight / 2)
-	  .attr("x", function (d) {return 200+400+(1-d.indenture)*childxsep/3}) // pushed 400 or fewer pixels right to be the second column
+	  .attr("x", function (d) {return 200*ii+(1-d.indenture)*childxsep/3}) // pushed 400 or fewer pixels right to be the second column
       .attr("height", barHeight)
       .attr("width",  barWidth/2 ) // Name column lines up on the right for all indentures
       .style("fill", color)
       .on("click", click);	
+	}
 	  
   // enter in a new column for part number
   // nodeEnter2.append("svg:rect")
@@ -142,11 +136,16 @@ function update(source) {
       .attr("dx", function(d) {return barWidth + 5.5 + (1-d.indenture)*childxsep/3;})  // horizontal position
       .text(function(d) { return d.name; });
 	  
-	  // column 3
-	nodeEnter.append("svg:text")
+
+	  
+//text columns 2 - 6
+	for (ii=2;ii<7;ii++)
+	{
+	 nodeEnter.append("svg:text")
       .attr("dy", 3.5)  // vertical position
-      .attr("dx", function(d) {return (3/2)*barWidth + 5.5 + (1-d.indenture)*childxsep/3;})  // horizontal position
+      .attr("dx", function(d) {return (ii/2)*barWidth + 5.5 + (1-d.indenture)*childxsep/3;})  // horizontal position
       .text(function(d) { return d.name; });
+	}	
   
   // Transition nodes to their new position.
   nodeEnter.transition()
